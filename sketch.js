@@ -1,9 +1,10 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
-var packageBody,ground
+var packageBody,ground,rect1,rect2,rect3;
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+var boxRightbody,boxLeftBody,boxBottomBody;
 
 function preload()
 {
@@ -20,7 +21,7 @@ function setup() {
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
 
-	helicopterSprite=createSprite(width/2, 200, 10,10);
+	helicopterSprite=createSprite(400, 200, 89000,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
@@ -31,7 +32,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
   
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3,isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.4,isStatic:true});
 	World.add(world, packageBody);
 	console.log(packageBody.x);
 
@@ -39,7 +40,25 @@ function setup() {
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
+	rect1 = createSprite(400,645,250,30)
+    rect1.shapeColor= "purple"
+    boxRightbody = Bodies.rectangle(360,627,250,30,{isStatic:true})
+	World.add(world,boxRightbody)
 
+	rect2 = createSprite(540,584,40,150)
+	rect2.shapeColor = "purple"
+	boxBottomBody = Bodies.rectangle(540,584,40,150,{isStatic:true})
+	World.add(world,boxBottomBody)
+
+	rect3 = createSprite(290,584,40,150)
+	rect3.shapeColor = "purple"
+	boxLeftBody = Bodies.rectangle(300,490,40,150,{isStatic:true})
+	World.add(world,boxLeftBody)
+
+
+
+	
+	
 	Engine.run(engine);
   
 }
@@ -58,11 +77,13 @@ function draw() {
 function keyPressed() {
  if (keyCode === 40) {
     // Look at the hints in the document and understand how to make the package body fall only on press of the Down arrow key.
-    Matter.Body.setStatic(packageBody,false)
+
+	Matter.Body.setStatic(packageBody,false)
+}
 }
 
 
-}
+
 
 
 
