@@ -40,17 +40,17 @@ function setup() {
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
-	rect1 = createSprite(400,645,250,30)
+	rect1 = createSprite(420,650,200,20)
     rect1.shapeColor= "purple"
-    boxRightbody = Bodies.rectangle(360,627,250,30,{isStatic:true})
+    boxRightbody = Bodies.rectangle(360,640,250,30,{isStatic:true})
 	World.add(world,boxRightbody)
 
-	rect2 = createSprite(540,584,40,150)
+	rect2 = createSprite(530,610,20,100)
 	rect2.shapeColor = "purple"
 	boxBottomBody = Bodies.rectangle(540,584,40,150,{isStatic:true})
 	World.add(world,boxBottomBody)
 
-	rect3 = createSprite(290,584,40,150)
+	rect3 = createSprite(320,610,20,100)
 	rect3.shapeColor = "purple"
 	boxLeftBody = Bodies.rectangle(300,490,40,150,{isStatic:true})
 	World.add(world,boxLeftBody)
